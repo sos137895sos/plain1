@@ -7,3 +7,15 @@ services:
       - 31141:27017
     volumes:
       - ./data/mongo1:/data/db
+
+  api:
+    container_name: api
+    ports:
+      - 5001:5001
+    image: api
+    build: .
+    command: bash -c "python run.py"
+    restart: always
+    # network_mode: host
+    volumes:
+      - .:/usr/src/app
