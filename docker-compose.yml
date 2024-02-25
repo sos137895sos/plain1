@@ -4,7 +4,7 @@ services:
     image: mongo
     container_name: mongo1
     ports:
-      - 31141:27017
+      - 27017:27017
     volumes:
       - ./data/mongo1:/data/db
 
@@ -19,3 +19,5 @@ services:
     # network_mode: host
     volumes:
       - .:/usr/src/app
+    env_file:
+      - vue.env
